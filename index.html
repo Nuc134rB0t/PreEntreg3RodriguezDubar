@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Maestro de Productos</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="searchInput" placeholder="Buscar por nombre">
+            </div>
+            <div class="col-md-9 text-md-end">
+                <button class="btn btn-primary" id="addProductBtn">Nuevo Producto</button>
+                <button class="btn btn-danger" id="deleteAllBtn">Eliminar Todos</button>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Precio Neto</th>
+                    <th scope="col">IVA 19%</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody id="productList">
+                <!-- Listado de productos JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal: modificar o eliminar producto -->
+    <div class="modal fade" id="modifyProductModal" tabindex="1" aria-labelledby="modifyProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modifyProductModalLabel">Modificar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" tabindex="0"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="modifyProductForm">
+                        <div class="mb-3">
+                            <label for="productCode" class="form-label">Código:</label>
+                            <input type="text" class="form-control" id="productCode" tabindex="1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="productName" tabindex="2">
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Precio Neto:</label>
+                            <input type="text" class="form-control" id="productPrice" tabindex="3">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" tabindex="5">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="saveProductBtn" tabindex="4">Guardar cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Modal: agregar nuevo producto -->
+    <div class="modal fade" id="addProductModal" tabindex="2" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Nuevo Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" tabindex="1"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductForm">
+                        <div class="mb-3">
+                            <label for="newProductCode" class="form-label">Código:</label>
+                            <input type="text" class="form-control" id="newProductCode" tabindex="2">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newProductName" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="newProductName" tabindex="3">
+                        </div>
+                        <div class="mb-3">
+                            <label for="newProductPrice" class="form-label">Precio Neto:</label>
+                            <input type="text" class="form-control" id="newProductPrice" tabindex="4">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" tabindex="6">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="saveNewProductBtn" tabindex="5">Guardar Producto</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script> 
+    <script src="./js/script.js"></script>
+</body>
+</html>
